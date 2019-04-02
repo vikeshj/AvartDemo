@@ -18,9 +18,11 @@ class ViewController: UIViewController {
         s.backgroundColor = .white
         s.automaticallyUpdatesLighting = false
         s.autoenablesDefaultLighting = true
+        s.showsStatistics = true
         s.antialiasingMode = .multisampling4X
         s.contentMode = UIView.ContentMode.scaleAspectFit
         s.translatesAutoresizingMaskIntoConstraints = false
+        s.rendersContinuously = true
         return s
     }()
     
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(sceneView)
-        
+        sceneView.scene.background.contents = UIColor.green
         
         NSLayoutConstraint.activate([
             sceneView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -147,6 +149,17 @@ extension ViewController:RenderARDelegate, RecordARDelegate {
         
     }
     
+    func sessionWasInterrupted(_ session: ARSession) {
+        print("sessionWasInterrupted")
+    }
     
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+         print("sessionInterruptionEnded")
+    }
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+         print("\(error.localizedDescription)")
+    }
 }
 
