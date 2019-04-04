@@ -11,6 +11,8 @@ import ARKit
 
 class ViewController: UIViewController {
     
+    static let shared: ViewController = ViewController()
+    
     // MARK: - Components
     weak var sceneView: ARSCNView! = {
         let s = ARSCNView()

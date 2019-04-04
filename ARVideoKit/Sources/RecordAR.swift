@@ -117,6 +117,8 @@ private var renderer: RenderAR!
         }
     }
     
+   
+    
     //MARK: - Public initialization methods
     /**
      Initialize 🌞🍳 `RecordAR` with an `ARSCNView` 🚀.
@@ -144,6 +146,12 @@ private var renderer: RenderAR!
             setup()
         }catch let error {
             logAR.message("Error occurred while loading SK Video Assets : \(error). Please download \"video.scnassets\" from\nwww.ahmedbekhit.com/ARVideoKitAssets")
+        }
+    }
+    
+    @objc public var pointOfView:SCNNode! {
+        didSet {
+            renderEngine.pointOfView = self.pointOfView
         }
     }
     

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         UIApplication.shared.isIdleTimerDisabled = true
-        window?.rootViewController = ViewController()
+        window?.rootViewController = ViewController.shared
         return true
     }
 

@@ -27,6 +27,7 @@ class VirtualAvatar: GenericARObject<Avatar> {
         // camera is set to userOrthographic
         cameraNode = contentNode?.childNode(withName: orthographic, recursively: true)
         view.pointOfView = cameraNode
+        ViewController.shared.recorder?.pointOfView = cameraNode!
         
         guard let children = puppetNode?.childNodes else { return }
         nodesLists = [:]
